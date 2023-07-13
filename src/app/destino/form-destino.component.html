@@ -1,0 +1,49 @@
+<div class="container">
+    <br>
+    <div class="card-body">
+        <h5 class="card-title">{{titulo}}</h5><br>
+        <form #formContact="ngForm">
+            <div class="form-group row">
+                <label for="nombre" class="col-form-label col-sm-2">Nro_Aeropuerto</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="nombre" [(ngModel)]="destino.nro_Aeropuerto" required #name="ngModel">
+
+                    <div class="alert alert-danger mt-2" [hidden]="name.valid || name.pristine">
+                        El nombre es obligatorio*
+                    </div>
+
+                </div>
+            </div>
+<br>
+            <div class="form-group row">
+                <label for="edad" class="col-form-label col-sm-2">Ciudad</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="edad" [(ngModel)]="destino.ciudad" required #edad="ngModel">
+
+                    <div class="alert alert-danger mt-2" [hidden]="edad.valid || edad.pristine">
+                        Su edad es obligatoria*
+                    </div>
+
+                </div>
+            </div>
+<br>
+            <div class="form-group row">
+                <label for="telefono" class="col-form-label col-sm-2">Cod_Ciudad</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="telefono" [(ngModel)]="destino.cod_Ciudad" required #telefono="ngModel">
+                    <div class="alert alert-danger mt-2" [hidden]="telefono.valid || telefono.pristine">
+                        Su telefono es obligatorio*
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-success" role="button" (click)='create()' *ngIf= "!destino.id_Destino else elseBlock" [disabled]="formContact.invalid">Registrar Cliente</button>
+
+            <ng-template #elseBlock> 
+                <button class="btn btn-success" role="button" (click)='update()'>Actualizar Cliente</button>
+            </ng-template> 
+        </form>
+
+
+    </div>
+</div>

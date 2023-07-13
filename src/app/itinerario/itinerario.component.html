@@ -1,0 +1,28 @@
+<div class="container">
+    <br>
+  <h1>{{titulo}}</h1>
+    <br>
+  <button class="btn btn-info" type="button" [routerLink]="['/itinerario/nuevo']">Nuevo itinerario</button>
+    <br><br>
+  <table class="table table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Dia_Vuelo</th>
+          <th scope="col">Hora_Despegue</th>
+          <th scope="col">Hora_Llegada</th>
+          <th scope="col">Dia_Retorno</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let itinerario of itinerario">
+          <th scope="row">{{itinerario.id_Itinerario}}</th>
+          <td>{{itinerario.dia_Vuelo}}</td>
+          <td>{{itinerario.hora_Despegue}}</td>
+          <td>{{itinerario.hora_Llegada}}</td>
+          <td>{{itinerario.dia_Retorno}}</td>
+      </tbody>
+  </table>
+  </div>

@@ -1,0 +1,31 @@
+
+<div class="container">
+    <br>
+  <h1>{{titulo}}</h1>
+    <br>
+  <button class="btn btn-info" type="button" [routerLink]="['/destino/nuevo']">Nuevo Destino</button>
+    <br><br>
+  <table class="table table-striped">
+      <thead class="table-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nro_Aeropuerto</th>
+            <th scope="col">Ciudad</th>
+            <th scope="col">Cod_Ciudad</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
+          </tr>
+         
+      </thead>
+      <tbody>
+        <tr *ngFor="let destino of destino">
+            <th scope="row">{{destino.id_Destino}}</th>
+            <td>{{destino.nro_Aeropuerto}}</td>
+            <td>{{destino.ciudad}}</td>
+            <td>{{destino.cod_Ciudad}}</td>
+            <td> <button type="button" name="button" class="btn btn-primary" [routerLink]="['/destino/form', destino.id_Destino]">Editar</button></td>
+            <td> <button class="btn btn-danger" (click)="delete(destino)">Eliminar</button></td>
+        </tr>
+      </tbody>
+  </table>
+  </div>
